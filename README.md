@@ -11,7 +11,7 @@
 
   1. Escolha de Framework Frontend - Angular
 
-  2. TODO: Escolha de Estrutura/Arquitetura
+  2. TODO: Escolha de Estrutura - Services
   
   3. Escolha de Autenticador - Firebase
   
@@ -22,5 +22,9 @@
   6. Database - Firestore
   
   7. CI/CD - GitHub Actions
+  
+  8. UI Lib - Material
 
 ## Topicos de Estudo Corrente
+- Seguir AngularDOC - Service
+- Talvez RXJS
