@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { SearchComponent } from "../search/search.component";
+import { CreateFormComponent } from "./components/create-form/create-form.component";
 
 @Component({
   selector: 'app-create',
-  imports: [],
+  imports: [CreateFormComponent],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })
 export class CreateComponent {
-
-
 }
+
+for (let i = 0; i < 10; i++) {
+  console.log("TESTS")
+}
+

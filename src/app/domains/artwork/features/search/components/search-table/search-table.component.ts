@@ -16,12 +16,12 @@ export interface PeriodicElement {
   styleUrl: './search-table.component.scss'
 })
 export class SearchTableComponent {
-  
+
 
   displayedColumns: string[] = ['id', 'fileName', 'createdDate'];
-  
-  constructor(public store: SearchStore){
-      
+
+  constructor(public store: SearchStore) {
+
   }
 
 }
