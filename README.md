@@ -12,18 +12,20 @@
   1. Escolha de Framework Frontend - Angular
 
   2. TODO: Escolha de Estrutura - Services
-  
+
   3. Escolha de Autenticador - Firebase
-  
+
   4. TODO: Set inicial de Libs e Tecnologias
-  
+
   5. Deploy e Host - Firebase
-  
+
   6. Database - Firestore
-  
+
   7. CI/CD - GitHub Actions
-  
+
   8. UI Lib - Material
+
+  9. Using Fake
 
 ## Topicos de Estudo Corrente
 - Seguir AngularDOC - Service
