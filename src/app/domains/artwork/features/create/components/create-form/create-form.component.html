@@ -1,17 +1,67 @@
-<p>create-form works!</p>
+<div class="form-container">
+  <h2 class="form-title">Create New Artwork</h2>
+  
+  <form class="artwork-form">
+    <!-- Basic Information Section -->
+    <div class="form-section">
+      <h3 class="section-title">Basic Information</h3>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Artwork Name</mat-label>
+          <input matInput placeholder="Enter artwork name">
+          <mat-icon matSuffix>title</mat-icon>
+        </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Input</mat-label>
-  <input matInput>
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Select</mat-label>
-  <mat-select>
-    <mat-option value="one">First option</mat-option>
-    <mat-option value="two">Second option</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Textarea</mat-label>
-  <textarea matInput></textarea>
-</mat-form-field>
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Category</mat-label>
+          <mat-select>
+            <mat-option value="digital">Digital Art</mat-option>
+            <mat-option value="traditional">Traditional Art</mat-option>
+            <mat-option value="photography">Photography</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>category</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Description Section -->
+    <div class="form-section">
+      <h3 class="section-title">Description</h3>
+      <mat-form-field appearance="outline" class="form-field full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput rows="4" placeholder="Describe your artwork"></textarea>
+        <mat-icon matSuffix>description</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <!-- Technical Details Section -->
+    <div class="form-section">
+      <h3 class="section-title">Technical Details</h3>
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Width (cm)</mat-label>
+          <input matInput type="number" placeholder="Width">
+          <mat-icon matSuffix>straighten</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Height (cm)</mat-label>
+          <input matInput type="number" placeholder="Height">
+          <mat-icon matSuffix>straighten</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Resolution (DPI)</mat-label>
+          <input matInput type="number" placeholder="Resolution">
+          <mat-icon matSuffix>high_quality</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="form-actions">
+      <button mat-stroked-button color="basic" type="button">Cancel</button>
+      <button mat-raised-button color="primary" type="submit">Create Artwork</button>
+    </div>
+  </form>
+</div>

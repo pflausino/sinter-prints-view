@@ -1,1 +1,34 @@
-<router-outlet />
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [mode]="'side'"
+      [opened]="true">
+    <div class="logo-container">
+      <h1 class="logo-text">SinterPrints</h1>
+      <div class="printer-logo">
+        <div class="cmyk-circle cyan"></div>
+        <div class="cmyk-circle magenta"></div>
+        <div class="cmyk-circle yellow"></div>
+        <div class="cmyk-circle black"></div>
+      </div>
+    </div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/artwork/search" routerLinkActive="active">
+        <mat-icon matListItemIcon>search</mat-icon>
+        <span matListItemTitle>Search Artwork</span>
+      </a>
+      <a mat-list-item routerLink="/artwork/create" routerLinkActive="active">
+        <mat-icon matListItemIcon>create</mat-icon>
+        <span matListItemTitle>Create Artwork</span>
+      </a>
+      <!-- Add more navigation items here as needed -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>Sinter Prints</span>
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
