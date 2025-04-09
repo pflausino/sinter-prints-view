@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { ComponentStore } from '@ngrx/component-store'
+import { ComponentStore } from '@ngrx/component-store';
+import { switchMap, tap } from 'rxjs';
 import { Artwork } from '../../data/artwork';
 import { ArtworkService } from '../../data/artwork.service';
-import { switchMap, tap } from 'rxjs';
 
 interface ArtworkState {
   artworks: Artwork[];

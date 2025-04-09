@@ -1,7 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { CommonModule } from '@angular/common';
-import { AsyncPipe } from '@angular/common';
 import { SearchStore } from '../../search.store';
 
 export interface PeriodicElement {
