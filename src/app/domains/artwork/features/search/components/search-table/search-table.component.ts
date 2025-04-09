@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
+import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { SearchStore } from '../../search.store';
 
 export interface PeriodicElement {
@@ -11,17 +13,19 @@ export interface PeriodicElement {
 
 @Component({
   selector: 'app-search-table',
-  imports: [MatTableModule],
+  imports: [MatTableModule, CommonModule, AsyncPipe],
+  providers: [SearchStore],
   templateUrl: './search-table.component.html',
   styleUrl: './search-table.component.scss'
 })
 export class SearchTableComponent {
 
+  store = inject(SearchStore)
+  displayedColumns: string[] = ['id', 'fileName', 'createdDate', 'fileType'];
 
-  displayedColumns: string[] = ['id', 'fileName', 'createdDate'];
-
-  constructor(public store: SearchStore) {
-
+  ngOnInit() {
+    this.store.loadArtworks();
   }
+
 
 }

@@ -1,18 +1,38 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { ComponentStore } from '@ngrx/component-store'
 import { Artwork } from '../../data/artwork';
-@Injectable({providedIn:'root'})
+import { ArtworkService } from '../../data/artwork.service';
+import { switchMap, tap } from 'rxjs';
 
-export class SearchStore {
-  ELEMENT_DATA: Array<Artwork> = [
-    { id: '1', fileName: 'Hydrogen', createdDate: 'H' },
-    { id: '2', fileName: 'Helium', createdDate: 'He' },
-    { id: '3', fileName: 'Lithium', createdDate: 'Li' },
-    { id: '4', fileName: 'Beryllium', createdDate: 'Be' },
-    { id: '5', fileName: 'Boron', createdDate: 'B' },
-    { id: '6', fileName: 'Carbon', createdDate: 'C' },
-    { id: '7', fileName: 'Nitrogen', createdDate: 'N' },
-    { id: '8', fileName: 'Oxygen', createdDate: 'O' },
-    { id: '9', fileName: 'Fluorine', createdDate: 'F' },
-    { id: '10', fileName: 'Neon', createdDate: 'Ne' },
-  ];
+interface ArtworkState {
+  artworks: Artwork[];
+  loading: boolean;
+}
+
+@Injectable({ providedIn: 'root' })
+export class SearchStore extends ComponentStore<ArtworkState> {
+  private artworkService = inject(ArtworkService);
+
+  constructor() {
+    super({ artworks: [], loading: false })
+  }
+
+  readonly artworks$ = this.select((state) => state.artworks)
+  readonly loading$ = this.select((state) => state.loading)
+
+  readonly loadArtworks = this.effect((trigger$) =>
+    trigger$.pipe(
+      tap(() => this.patchState({ loading: true })),
+      switchMap(() =>
+        this.artworkService.getAllArtworks().pipe(
+          tap({
+            next: (artworks) => this.patchState({ artworks, loading: false }),
+            error: () => this.patchState(({ loading: false }))
+          })
+        )
+      )
+    )
+
+  )
+
 }
